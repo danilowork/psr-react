@@ -1,0 +1,551 @@
+.signup-landing{
+
+  &.transition-enter {
+    opacity: 0.01;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    &.transition-enter-active {
+      opacity: 0.01;
+      transition: none;
+    }
+  }
+  &.transition-leave {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    &.transition-leave-active {//still on screen for 'transitionLeaveTimeout' when changed to signup coach
+      opacity: 0.01;
+      transition: none;
+    }
+  }
+}
+
+.signup{
+  &.transition-enter {
+    opacity: 0.01;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    &.transition-enter-active {
+      opacity: 1;
+      transition: none;
+    }
+  }
+  &.transition-leave {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    &.transition-leave-active {
+      opacity: 1;
+      transition: none;
+    }
+  }
+
+  .main-content-container {
+    padding-top: 1rem;
+  }
+}
+
+
+.signup-athlete{
+
+  .active{
+
+    &.link-panels{
+      transform: translateX(-50%);
+      .athlete{
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+        width:50%;
+        transform: translateX(100%);
+      }
+      .coach{
+        transform: translateX(302%);
+      }
+      .organisation{
+        transform: translateX(302%);
+      }
+    }
+
+  }
+}
+
+.signup-coach{
+
+  .active{
+
+    &.link-panels{
+      transform: translateX(-50%);
+      .athlete{
+        transform: translateX(50%);
+      }
+      .coach{
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+        width:50%;
+        transform: translateX(33.333%);
+      }
+      .organisation{
+        transform: translateX(202%);
+      }
+    }
+
+  }
+}
+
+.signup-organisation{
+
+  .active{
+
+    &.link-panels{
+      transform: translateX(-66.666%);
+      .athlete{
+        //transform: translateX(50%);
+      }
+      .coach{
+        //transform: translateX(33.333%);
+      }
+      .organisation{
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+        width:50%;
+      }
+    }
+
+  }
+}
+
+
+.signup-landing, .signup{
+  overflow:hidden;
+
+  .content {
+    transform: translateX(0);
+    transition: 0.6s;
+    overflow:hidden;
+
+
+    .link-panels{
+      width:100%;height:100%;top:0;bottom:0;left:0;right:0;
+      display:flex;
+      position:absolute;
+      z-index:3;
+      transition: 0.6s;
+      & > a{
+        transition: 0.6s;
+      }
+    }
+  }
+}
+
+
+.steps-container {
+  position: relative;
+  width: 100%;
+  @include breakpoint(medium) {
+    left: 50%;
+    width: 50%;
+  }
+  top: 0;
+  //max-height: calc(100vh - 49px);
+  right: 0;
+  overflow:hidden;
+  z-index:2;
+  // @include breakpt {
+  padding-left: 0;
+  padding-right: 0;
+  // }
+
+  .transition-container {
+    background-color: #fff;
+    //max-height:calc(100vh - 99px);
+    flex:1 1 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    .signup-organisation &{
+      //max-height:calc(100vh - 49px);
+    }
+    @include breakpt {
+      margin-left: 0;
+      margin-right: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .ntent-container {
+      @include breakpoint(large) { padding-top: 4rem; }
+    }
+  }
+}
+
+.motion-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+
+  transition: 0.6s;
+
+
+  @include breakpt {
+    //overflow: auto; //needed for FF
+  }
+
+}
+.signup-athlete .motion-container {
+  transform: translateX(-100%);
+  &.in {
+    transform: translateX(0);
+  }
+}
+.signup-coach .motion-container {
+  transform: translateX(-100%);
+  &.in {
+    transform: translateX(0);
+  }
+}
+.signup-organisation .motion-container {
+  transform: translateX(-100%);
+  &.in {
+    transform: translateX(0);
+  }
+}
+.signup-athlete .motion-container, .signup-coach .motion-container, .signup-organisation .motion-container {
+  @include breakpt {
+    transform: translate(0, 100%);
+    opacity:0;
+    ////transition-delay:0;
+    &.in {
+      transform: translate(0, 0);
+      opacity:1;
+      //transition-delay:0.2s;
+    }
+  }
+}
+// @keyframes slide-down {
+//   0% {transform: translateY(-100%)}
+//   100% { transform: translateY(0)}
+// }
+// @keyframes slide-up {
+//   0% {transform: translateY(0)}
+//   100% { transform: translateY(-100%)}
+// }
+.signup-progress {
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-shrink: 0;
+  margin-top: -1px;
+  // margin-left: $smallMargin;
+  // margin-right: $smallMargin;
+  @include breakpt {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .step {
+    color: $dark-text;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1rem;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    font-size: 0.75rem;
+    @include xs-up {
+      font-size: 1rem;
+    }
+    &:first-child { padding-left: 0; }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top:0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform-origin: bottom left;
+      transform: skew(-25deg, 0deg);
+      border: 1px solid $gray-border;
+      // border-top: none;
+    }
+  }
+  .step.clickable {
+    cursor: pointer;
+  }
+  .step.active {
+    &::after {
+      border: none;
+    }
+    color: #fff;
+  }
+  .step.active + .step:not(.active)::after {
+    border-left: none;
+  }
+  .step:not(.active) + .step:not(.active)::after {
+    border-left: none;
+  }
+
+}
+.signup-athlete .signup-progress {
+  .step.active::after { background-color: $red; }
+  .step:nth-child(1).active {
+    background-color: $red;
+  }
+  .step.active + .step.active::after {
+    border-left: 1px solid #ff7273;
+  }
+}
+.signup-coach .signup-progress {
+  .step.active::after { background-color: $blue; }
+  .step:nth-child(1).active {
+    background-color: $blue;
+  }
+  .step.active + .step.active::after {
+    border-left: 1px solid #2c9fde;
+  }
+}
+
+.full-screen {
+    display: flex;
+    flex-direction: column;
+    min-height:100vh;//instead of js resize that was there
+  .content {
+    width: 100%;
+    flex-grow: 1;
+    .signup-link a { color: #fff; }
+    @include breakpt{
+      flex-flow: row nowrap;
+    }
+  }
+}
+.row.type-tabs {
+  padding-top: 2rem;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: #fff;
+  flex-shrink: 0;
+}
+.tabs-wrap {
+  display: flex;
+  justify-content: space-between;
+  .tab {
+    display: block;
+    border-bottom: 1px solid $gray-border;
+    padding: 0.5rem;
+    color: $light-text;
+    @include header-text;
+  }
+  .athlete-tab.active {
+    color: $red;
+    border-color: $red;
+  }
+  .coach-tab.active {
+    color: $blue;
+    border-color: $blue;
+  }
+}
+.signup-link {
+  display: flex;
+  @include flex-align(center, middle);
+  font-size: 1.5rem;
+  color: #fff;
+  &:hover { color: #fff; }
+  @include header-text;
+  @include breakpoint(medium) {
+    font-size: 2rem;
+  }
+  @include breakpoint(large) {
+    font-size: 3rem;
+  }
+}
+.signup-link.athlete  {
+  background: url(../images/signup-a-m.jpg) no-repeat center center;
+  background-size: cover;
+}
+.signup-link.coach {
+  background: url(../images/signup-c-m.jpg) no-repeat center center;
+  background-size: cover;
+}
+.signup-link.organisation {
+  background: url(../images/signup-organisation.jpg) no-repeat center center;
+  background-size: cover;
+}
+/*
+@include breakpt {
+  .signup-link.athlete, .signup-coach .steps-container {
+    background-image: url(../images/signup-a-d.jpg);
+    background-size: cover;
+  }
+  .signup-link.coach, .signup-athlete .steps-container {
+    background-image: url(../images/signup-c-d.jpg);
+    background-size: cover;
+  }
+}
+*/
+.back-button-box {
+  padding-top: 1rem;
+}
+.signup
+.arrow-link {
+  z-index:2;
+}
+.parental-consent {
+  display: none;
+  &.show { display: block; }
+}
+.credit-cards {
+  margin-bottom: 1rem;
+  img {
+    border: 1px solid $gray-border;
+    margin-right: 10px;
+    &.active {
+      border: 1px solid $red;
+    }
+  }
+}
+.expiry-y {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+//stripe payment styling
+#card-number, #card-expiry, #card-cvc, #post-code, #card-zip {
+  margin: 0 0 $form-field-margin;
+  border-bottom: 1px solid $gray-border;
+  padding-left: 13px;
+  padding-right: 13px;
+  &:focus, &.focus {
+    border-bottom: 1px solid $light-text;
+  }
+}
+
+.use-promo{//fieldset
+    max-height: 35px;
+    overflow: hidden;
+    transition: max-height 500ms ease-out;
+    position:relative;
+    padding:0 0 7px;
+    margin-bottom: 1.5rem;
+
+  .section-heading{
+    cursor:pointer;
+  }
+
+  .icon-down-arrow{
+    font-size:10px;
+    margin: 0 0 0 7px;
+    display:inline-block;
+  }
+
+  input{
+    float:left;
+    max-width:150px;
+  }
+  .button{
+    margin:7px 0 0;
+    float:right;
+  }
+  .promo-success{
+    color:$medium-blue;
+    font-size:12px;
+    clear:both;
+    display:none;
+    position:absolute;
+    bottom:0;left:0;
+  }
+  .promo-error{
+    color:$red;
+    font-size:12px;
+    clear:both;
+    display:none;
+    position:absolute;
+    bottom:0;left:0;
+  }
+  &.open{
+    max-height: 130px;
+    transition: max-height 500ms ease-in;
+    margin-bottom: 1.5rem;
+    .icon-down-arrow{
+      @include rotate(180);
+    }
+    .promo-success,
+    .promo-error{
+      display:block;
+    }
+  }
+}
+
+.type-tabs.row {
+  margin: 0 !important;
+}
+
+.signup-athlete, .signup-coach, .signup-organisation {
+  .signup-link {
+    display: none;
+  }
+}
+@include breakpoint(medium) {
+  .signup-athlete, .signup-coach, .signup-organisation {
+    .signup-link {
+      display: flex;
+    }
+  }
+}
+@include breakpoint(medium) {
+  .signup-athlete {
+    .signup-link.athlete {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      flex: 50%;
+      max-width: 50%
+    }
+    .signup-link.coach, .signup-link.organisation {
+      flex: 0 0 0;
+      display: none;
+    }
+  }
+  .signup-coach {
+    .signup-link.coach {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      flex: 50%;
+      max-width: 50%
+    }
+    .signup-link.athlete, .signup-link.organisation {
+      flex: 0 0 0;
+      display: none;
+    }
+  }
+  .signup-organisation {
+    .signup-link.organisation {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      flex: 50%;
+      max-width: 50%
+    }
+    .athlete, .signup-link.coach {
+      flex: 0 0 0;
+      display: none;
+    }
+  }
+}

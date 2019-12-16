@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="24px" viewBox="0 0 11 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-sidebar</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="New-Direction_Athlete" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="Athlete_New_Profile-DashCollapsed" transform="translate(-1414.000000, -620.000000)" stroke="#17A6F2" stroke-width="3">
+            <g id="sidebar" transform="translate(1398.000000, 106.000000)">
+                <polyline id="arrow-sidebar" transform="translate(21.500000, 526.000000) scale(-1, 1) rotate(-90.000000) translate(-21.500000, -526.000000) " points="12 523 21.5 529 31 523"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

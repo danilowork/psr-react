@@ -1,0 +1,141 @@
+.sidebar-container {
+  padding-right: 0;
+  padding-left: 0;
+  width: 12%;
+  position: fixed;
+  background-color: #fff;
+}
+.teams-users-sidebar-container {
+  padding-right: 0;
+  padding-left: 0;
+  width: 24%;
+  position: fixed;
+  background-color: #fff;
+  right: 0;
+  height: 80%;
+}
+.teams-users-sidebar-hidden .teams-users-sidebar-container {
+  margin-right: -22.5%;
+}
+.dashboard .teams-users-sidebar-container {
+  top: 102px;
+  z-index: 1;
+}
+.sidebar {
+  .logo {
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    img {
+      width: 35%;
+      max-width: 60px;
+    }
+  }
+  .nav-link {
+    padding: 0.8rem 10%;
+    display: block;
+    border-bottom: 1px solid $gray-border;
+    color: $light-text;
+    font-family: $header-font-family;
+    font-size: 0.75rem;
+    transition: color 0.3s;
+    &:hover, &.active { color: $dark-text; }
+    @include breakpoint(xlarge) { font-size: 0.875rem; }
+    @include breakpoint(xxlarge) {
+      font-size: 1rem;
+      padding-left: 18%;
+    }
+  }
+}
+.athlete .sidebar .nav-link.active {
+  border-bottom: 1px solid $red;
+}
+.coach .sidebar .nav-link.active {
+  border-bottom: 1px solid $blue;
+}
+.teams-users-sidebar {
+  border-left: 1px solid $gray-border;
+  background-color: white;
+  height: 100%;
+  .logo {
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    img {
+      width: 35%;
+      max-width: 60px;
+    }
+  }
+  .nav-link {
+    padding: 0.8rem 10%;
+    display: block;
+    border-bottom: 1px solid $gray-border;
+    color: $light-text;
+    font-family: $header-font-family;
+    font-size: 0.75rem;
+    transition: color 0.3s;
+    &:hover, &.active { color: $dark-text; }
+    @include breakpoint(xlarge) { font-size: 0.875rem; }
+    @include breakpoint(xxlarge) {
+      font-size: 1rem;
+      padding-left: 18%;
+    }
+  }
+  .search-result {
+    padding: 0 20px 20px 20px;
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
+  }
+  .letter-heading {
+    border-bottom: none;
+    font-size: 0.9rem;
+  }
+  .profile-pic-wrap {
+    border-bottom: 1px solid #f1f1f1;
+    padding: 11px 3px;
+    font-size: 0.9rem;
+    position: relative;
+
+    a {
+      display: flex;
+      align-items: center;
+
+      span {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+
+    &.active {
+      a {
+        position: relative;
+        display: flex;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        height: 73px;
+        top: 0;
+        right: -20px;
+        left: -20px;
+        background-color: #f9f9f9;
+      }
+    }
+  }
+  .profile-thumb {
+    width: 50px;
+    height: 50px;
+    margin-right: 18px;
+    flex-shrink: 0;
+  }
+}
+.athlete .teams-users-sidebar .nav-link.active {
+  border-bottom: 1px solid $red;
+}
+.coach .teams-users-sidebar .nav-link.active {
+  border-bottom: 1px solid $blue;
+}
